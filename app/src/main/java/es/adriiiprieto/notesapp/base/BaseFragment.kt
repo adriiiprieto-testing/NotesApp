@@ -1,9 +1,11 @@
 package es.adriiiprieto.notesapp.base
 
+import android.app.Activity
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -34,6 +36,16 @@ abstract class BaseFragment<VS : BaseViewState, VM : BaseViewModel<VS>, B : View
         binding = bindingInflater.invoke(inflater, container, false)
 
         return binding.root
+    }
+
+    /**
+     * OnPause
+     */
+    override fun onPause() {
+        super.onPause()
+
+        //  Hide keyboard
+        (requireActivity().getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager).hideSoftInputFromWindow(view?.windowToken, 0)
     }
 
     /**
