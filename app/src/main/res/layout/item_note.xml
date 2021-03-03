@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/itemNoteMaterialCardView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:strokeColor="@color/black"
+            app:strokeWidth="1dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingBottom="16dp">
+
+                <TextView
+                    android:id="@+id/itemNoteTextViewTitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/nunito_bold"
+                    android:maxLines="2"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="Título de mi nota" />
+
+                <TextView
+                    android:id="@+id/itemNoteTextViewBody"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:fontFamily="@font/nunito"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/itemNoteTextViewTitle"
+                    tools:text="Pellentesque fringilla tortor sed turpis suscipit, id luctus ligula suscipit. In vulputate sagittis urna. Nullam magna ligula, laoreet eget ornare vel, tristique ac tellus. Nam bibendum molestie velit, sed euismod sem bibendum in. Maecenas semper turpis sapien, a pellentesque diam sagittis ac. Mauris laoreet dapibus lorem, nec lacinia orci cursus eu. Phasellus feugiat lectus sed finibus fringilla. Morbi maximus erat ex, id tincidunt quam posuere et. Nulla facilisi. In hac habitasse platea dictumst. Etiam eget ex euismod massa egestas tempor non a lorem. Nullam luctus dolor mauris, sed fermentum ex suscipit non. Suspendisse consequat luctus accumsan. Proin pretium, felis et posuere varius, nulla nibh fermentum nunc, non suscipit massa mi mollis enim. Aenean hendrerit ultrices molestie. Suspendisse fermentum, ante eu auctor gravida, lorem arcu finibus sem, vel suscipit metus erat sed lorem. Sed vitae diam eu velit euismod pulvinar non sit amet massa. Nam sed cursus nibh. Donec et pulvinar lectus, ut feugiat lacus. Pellentesque non euismod odio. Cras egestas et orci quis convallis." />
+
+                <Button
+                    android:id="@+id/itemNoteButtonEdit"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginEnd="8dp"
+                    android:text="@string/itemNoteButtonEditText"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/itemNoteButtonDelete"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintHorizontal_chainStyle="spread_inside"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/itemNoteTextViewBody"
+                    app:layout_constraintVertical_bias="1.0"
+                    app:strokeColor="@color/design_default_color_primary" />
+
+                <Button
+                    android:id="@+id/itemNoteButtonDelete"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginEnd="16dp"
+                    android:backgroundTint="#C2185B"
+                    android:text="@string/itemNoteButtonDeleteText"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/itemNoteButtonEdit"
+                    app:layout_constraintTop_toBottomOf="@+id/itemNoteTextViewBody"
+                    app:layout_constraintVertical_bias="1.0" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
