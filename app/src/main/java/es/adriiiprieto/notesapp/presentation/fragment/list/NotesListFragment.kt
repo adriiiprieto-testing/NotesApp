@@ -3,9 +3,11 @@ package es.adriiiprieto.notesapp.presentation.fragment.list
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import dagger.hilt.android.AndroidEntryPoint
+import es.adriiiprieto.notesapp.R
 import es.adriiiprieto.notesapp.base.BaseExtraData
 import es.adriiiprieto.notesapp.base.BaseFragment
 import es.adriiiprieto.notesapp.databinding.FragmentNotesListBinding
@@ -51,14 +53,14 @@ class NotesListFragment : BaseFragment<NotesListState, NotesListViewModel, Fragm
      */
     private fun setupButton() {
         binding.fragmentNotesListFab.setOnClickListener {
-
+            findNavController().navigate(NotesListFragmentDirections.actionNotesListFragmentToNotesFormFragment())
         }
     }
 
     private fun setupRecyclerView() {
         mAdapter = NotesListAdapter(listOf(), object : NotesListAdapter.MyClicksListener {
             override fun onEditButtonClicked(item: NoteDomainModel) {
-
+                findNavController().navigate(NotesListFragmentDirections.actionNotesListFragmentToNotesFormFragment(item))
             }
 
             override fun onDeleteButtonClicked(item: NoteDomainModel) {
