@@ -3,4 +3,15 @@
     <string name="itemNoteButtonEditText">Edit</string>
     <string name="itemNoteButtonDeleteText">Delete</string>
     <string name="fragmentNotesListFabText">New note</string>
+    <string name="fragmentNotesFormTextInputLayoutTitleText">Title</string>
+    <string name="fragmentNotesFormTextInputLayoutTitleHelperText">The max length for this field is 100 chars</string>
+    <string name="fragmentNotesFormTextInputLayoutBodyText">Contenido</string>
+    <string name="notesFormFragmentErrorEmptyField">The field cannot be empty</string>
+    <string name="notesFormFragmentButtonTextUpdate">Actualizar</string>
+    <string name="notesFormFragmentButtonTextCreate">Crear</string>
+    <string name="notesFormFragmentDialogTitle">Information</string>
+    <string name="notesFormFragmentDialogMessage">Note saved</string>
+    <string name="notesFormFragmentDialogButtonAccept">Ok</string>
+    <string name="notesFormFragmentDialogMessageConfirmation">You will los the old information, are you sure?</string>
+    <string name="notesFormFragmentDialogButtonCancelConfirmation">Cancelar</string>
 </resources>

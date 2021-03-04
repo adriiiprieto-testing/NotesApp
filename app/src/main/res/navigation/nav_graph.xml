@@ -18,5 +18,11 @@
         android:id="@+id/notesFormFragment"
         android:name="es.adriiiprieto.notesapp.presentation.fragment.form.NotesFormFragment"
         android:label="NotesFormFragment"
-        tools:layout="@layout/fragment_notes_form" />
+        tools:layout="@layout/fragment_notes_form" >
+        <argument
+            android:name="inputStateNote"
+            app:argType="es.adriiiprieto.notesapp.domain.model.NoteDomainModel"
+            app:nullable="true"
+            android:defaultValue="@null" />
+    </fragment>
 </navigation>
