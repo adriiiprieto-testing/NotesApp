@@ -12,6 +12,7 @@ import es.adriiiprieto.notesapp.R
 import es.adriiiprieto.notesapp.base.BaseExtraData
 import es.adriiiprieto.notesapp.base.BaseFragment
 import es.adriiiprieto.notesapp.databinding.FragmentNotesFormBinding
+import es.adriiiprieto.notesapp.presentation.MainActivity
 
 @AndroidEntryPoint
 class NotesFormFragment : BaseFragment<NotesFormState, NotesFormViewModel, FragmentNotesFormBinding>() {
@@ -38,8 +39,13 @@ class NotesFormFragment : BaseFragment<NotesFormState, NotesFormViewModel, Fragm
 
         setupEditText()
         setupButton()
+        setupToolbar(args.inputStateNote == null)
 
         vm.setNote(args.inputStateNote)
+    }
+
+    private fun setupToolbar(create: Boolean) {
+        (requireActivity() as MainActivity).setupToolbar(if (create) getString(R.string.notesFormFragmnetToolbarTitleCreate) else getString(R.string.notesFormFragmnetToolbarTitleUpdate))
     }
 
     override fun onNormal(data: NotesFormState) {

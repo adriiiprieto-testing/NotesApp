@@ -14,4 +14,7 @@
     <string name="notesFormFragmentDialogButtonAccept">Ok</string>
     <string name="notesFormFragmentDialogMessageConfirmation">You will los the old information, are you sure?</string>
     <string name="notesFormFragmentDialogButtonCancelConfirmation">Cancelar</string>
+    <string name="notesListFragmentToolbarTitle">My notes</string>
+    <string name="notesFormFragmnetToolbarTitleCreate">Create new note</string>
+    <string name="notesFormFragmnetToolbarTitleUpdate">Update note</string>
 </resources>
