@@ -45,7 +45,7 @@ class NotesFormFragment : BaseFragment<NotesFormState, NotesFormViewModel, Fragm
     }
 
     private fun setupToolbar(create: Boolean) {
-        (requireActivity() as MainActivity).setupToolbar(if (create) getString(R.string.notesFormFragmnetToolbarTitleCreate) else getString(R.string.notesFormFragmnetToolbarTitleUpdate))
+        (requireActivity() as MainActivity).setupToolbar(if (create) getString(R.string.notesFormFragmentToolbarTitleCreate) else getString(R.string.notesFormFragmentToolbarTitleUpdate))
     }
 
     override fun onNormal(data: NotesFormState) {
