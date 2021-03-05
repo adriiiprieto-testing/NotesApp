@@ -57,6 +57,9 @@ abstract class BaseFragment<VS : BaseViewState, VM : BaseViewModel<VS>, B : View
         // Get or create the viewModel
         viewModel = ViewModelProvider(this).get(viewModelClass)
 
+        // Setup view sending the View Model
+        setupView(viewModel)
+
         // Setup observers
         viewModel.getObservableState().observe(viewLifecycleOwner, { state ->
             onNormal(state.data)
@@ -67,9 +70,6 @@ abstract class BaseFragment<VS : BaseViewState, VM : BaseViewModel<VS>, B : View
                 }
             }
         })
-
-        // Setup view sending the View Model
-        setupView(viewModel)
 
         // Fragment start
         viewModel.onStart()

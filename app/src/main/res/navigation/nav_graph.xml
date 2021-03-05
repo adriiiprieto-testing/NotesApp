@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/notesListFragment"
         android:name="es.adriiiprieto.notesapp.presentation.fragment.list.NotesListFragment"
-        android:label="NotesListFragment"
+        android:label="@string/notesListFragmentToolbarTitle"
         tools:layout="@layout/fragment_notes_list">
         <action
             android:id="@+id/action_notesListFragment_to_notesFormFragment"
@@ -17,7 +17,6 @@
     <fragment
         android:id="@+id/notesFormFragment"
         android:name="es.adriiiprieto.notesapp.presentation.fragment.form.NotesFormFragment"
-        android:label="NotesFormFragment"
         tools:layout="@layout/fragment_notes_form" >
         <argument
             android:name="inputStateNote"

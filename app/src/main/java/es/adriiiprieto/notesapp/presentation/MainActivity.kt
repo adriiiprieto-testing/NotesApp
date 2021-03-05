@@ -24,8 +24,13 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         // Setup Toolbar
+        setSupportActionBar(binding.myToolbar)
         val navController = (supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment).navController
         val appBarConfiguration = AppBarConfiguration(navController.graph)
         binding.myToolbar.setupWithNavController(navController, appBarConfiguration)
+    }
+
+    fun setupToolbar(title: String){
+        supportActionBar?.title = title
     }
 }
