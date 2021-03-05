@@ -12,6 +12,7 @@ import es.adriiiprieto.notesapp.base.BaseExtraData
 import es.adriiiprieto.notesapp.base.BaseFragment
 import es.adriiiprieto.notesapp.databinding.FragmentNotesListBinding
 import es.adriiiprieto.notesapp.domain.model.NoteDomainModel
+import java.util.*
 
 @AndroidEntryPoint
 class NotesListFragment : BaseFragment<NotesListState, NotesListViewModel, FragmentNotesListBinding>() {
@@ -54,8 +55,17 @@ class NotesListFragment : BaseFragment<NotesListState, NotesListViewModel, Fragm
     private fun setupButton() {
         binding.fragmentNotesListFab.setOnClickListener {
             findNavController().navigate(NotesListFragmentDirections.actionNotesListFragmentToNotesFormFragment())
+//            setLocale("es")
         }
     }
+
+    private fun setLocale(languageCode: String) {
+        val locale = Locale(languageCode)
+        Locale.setDefault(locale)
+        requireActivity().resources.configuration.setLocale(locale)
+        resources.updateConfiguration(requireActivity().resources.configuration, resources.displayMetrics)
+    }
+
 
     private fun setupRecyclerView() {
         mAdapter = NotesListAdapter(listOf(), object : NotesListAdapter.MyClicksListener {
