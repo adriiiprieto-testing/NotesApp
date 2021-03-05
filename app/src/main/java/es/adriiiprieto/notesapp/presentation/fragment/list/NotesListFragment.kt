@@ -6,6 +6,8 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.work.WorkInfo
+import androidx.work.WorkManager
 import dagger.hilt.android.AndroidEntryPoint
 import es.adriiiprieto.notesapp.base.BaseExtraData
 import es.adriiiprieto.notesapp.base.BaseFragment
@@ -28,6 +30,7 @@ class NotesListFragment : BaseFragment<NotesListState, NotesListViewModel, Fragm
 
         setupRecyclerView()
         setupButton()
+        setupWorkManager()
     }
 
     override fun onNormal(data: NotesListState) {
@@ -85,6 +88,16 @@ class NotesListFragment : BaseFragment<NotesListState, NotesListViewModel, Fragm
             layoutManager = LinearLayoutManager(requireActivity())
             adapter = mAdapter
             itemAnimator = DefaultItemAnimator()
+        }
+    }
+
+    private fun setupWorkManager() {
+        WorkManager.getInstance(requireActivity().applicationContext).getWorkInfosByTagLiveData("saveInfo").observe(viewLifecycleOwner) { workInfo ->
+            workInfo.firstOrNull()?.let { task ->
+                if (task.state == WorkInfo.State.SUCCEEDED) {
+                    vm.requestInformation()
+                }
+            }
         }
     }
 
