@@ -6,8 +6,9 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.work.WorkInfo
+import androidx.work.WorkManager
 import dagger.hilt.android.AndroidEntryPoint
-import es.adriiiprieto.notesapp.R
 import es.adriiiprieto.notesapp.base.BaseExtraData
 import es.adriiiprieto.notesapp.base.BaseFragment
 import es.adriiiprieto.notesapp.databinding.FragmentNotesListBinding
@@ -29,6 +30,7 @@ class NotesListFragment : BaseFragment<NotesListState, NotesListViewModel, Fragm
 
         setupRecyclerView()
         setupButton()
+        setupWorkManager()
     }
 
     override fun onNormal(data: NotesListState) {
@@ -54,6 +56,21 @@ class NotesListFragment : BaseFragment<NotesListState, NotesListViewModel, Fragm
     private fun setupButton() {
         binding.fragmentNotesListFab.setOnClickListener {
             findNavController().navigate(NotesListFragmentDirections.actionNotesListFragmentToNotesFormFragment())
+
+//            NotificationUtil(
+//                context = requireActivity(),
+//                channelId = "Welcome",
+//                channelName = "Canal de bienvenida",
+//                channelDescription = "Este es un canal de prueba para nuevas notificaciones",
+//                notificationId = 123456789,
+//                isClickable = true,
+//                setTitle = "Holaa!!",
+//                setContent = "Ejemplo",
+//                setLongContent = "Sample of content",
+//                isColorAccent = true,
+//                idColorized = true
+//            )
+
         }
     }
 
@@ -71,6 +88,16 @@ class NotesListFragment : BaseFragment<NotesListState, NotesListViewModel, Fragm
             layoutManager = LinearLayoutManager(requireActivity())
             adapter = mAdapter
             itemAnimator = DefaultItemAnimator()
+        }
+    }
+
+    private fun setupWorkManager() {
+        WorkManager.getInstance(requireActivity().applicationContext).getWorkInfosByTagLiveData("saveInfo").observe(viewLifecycleOwner) { workInfo ->
+            workInfo.firstOrNull()?.let { task ->
+                if (task.state == WorkInfo.State.SUCCEEDED) {
+                    vm.requestInformation()
+                }
+            }
         }
     }
 

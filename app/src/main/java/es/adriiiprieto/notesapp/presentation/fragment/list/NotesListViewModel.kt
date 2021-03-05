@@ -16,6 +16,10 @@ class NotesListViewModel @Inject constructor(private val noteRepository: NoteRep
     }
 
     override fun onResume() {
+        requestInformation()
+    }
+
+    fun requestInformation(){
         executeCoroutines({
             val notes = noteRepository.getAll()
 

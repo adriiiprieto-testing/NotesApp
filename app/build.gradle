@@ -34,7 +34,7 @@ android {
         jvmTarget = '1.8'
     }
 
-    buildFeatures{
+    buildFeatures {
         dataBinding true
     }
 }
@@ -61,4 +61,14 @@ dependencies {
     kapt "androidx.room:room-compiler:2.2.6"
     implementation "androidx.room:room-ktx:2.2.6"
     testImplementation "androidx.room:room-testing:2.2.6"
+
+    // Work manager
+    implementation "androidx.work:work-runtime-ktx:2.5.0"
+    implementation "androidx.work:work-gcm:2.5.0"
+    androidTestImplementation "androidx.work:work-testing:2.5.0"
+    implementation "androidx.work:work-multiprocess:2.5.0"
+
+    // Work manager and Hilt
+    implementation 'androidx.hilt:hilt-work:1.0.0-alpha03'
+    kapt 'androidx.hilt:hilt-compiler:1.0.0-alpha03'
 }

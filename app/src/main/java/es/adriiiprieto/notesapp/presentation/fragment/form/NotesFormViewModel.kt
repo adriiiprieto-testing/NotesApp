@@ -1,6 +1,9 @@
 package es.adriiiprieto.notesapp.presentation.fragment.form
 
+import android.content.Context
+import androidx.work.*
 import dagger.hilt.android.lifecycle.HiltViewModel
+import dagger.hilt.android.qualifiers.ApplicationContext
 import es.adriiiprieto.notesapp.base.BaseExtraData
 import es.adriiiprieto.notesapp.base.BaseViewModel
 import es.adriiiprieto.notesapp.domain.model.NoteDomainModel
@@ -14,7 +17,7 @@ import es.adriiiprieto.notesapp.presentation.fragment.form.NotesFormFragment.Com
 import javax.inject.Inject
 
 @HiltViewModel
-class NotesFormViewModel @Inject constructor(private val repository: NoteRepository) : BaseViewModel<NotesFormState>() {
+class NotesFormViewModel @Inject constructor(private val repository: NoteRepository, @ApplicationContext private val context: Context) : BaseViewModel<NotesFormState>() {
 
     override val defaultState: NotesFormState = NotesFormState()
 
@@ -77,14 +80,31 @@ class NotesFormViewModel @Inject constructor(private val repository: NoteReposit
     fun onActionUpdateNote() {
         checkDataState { state ->
 
-            executeCoroutines({
-                if (state.note != null) {
-                    repository.update(state.note.copy(title = state.title, body = state.body))
+            if (state.note != null) {
 
-                    updateToLoadingState(BaseExtraData(CODE_EXIT))
-                }
-            }, {})
+                // Set constraints to the work
+                val constraints = Constraints.Builder()
+                    .setRequiredNetworkType(NetworkType.UNMETERED)
+                    .build()
 
+                // Create and configure the work
+                val saveWorkRequest: WorkRequest = OneTimeWorkRequestBuilder<SaveNoteWorker>()
+                    .addTag("saveInfo")
+                    .setInputData(
+                        workDataOf(
+                            "title" to state.title,
+                            "body" to state.body,
+                            "id" to state.note.id
+                        )
+                    )
+                    .setConstraints(constraints)
+                    .build()
+
+                // Launch the work
+                WorkManager.getInstance(context).enqueue(saveWorkRequest)
+
+                updateToLoadingState(BaseExtraData(CODE_EXIT))
+            }
         }
     }
 
