@@ -53,6 +53,21 @@ class NotesListFragment : BaseFragment<NotesListState, NotesListViewModel, Fragm
     private fun setupButton() {
         binding.fragmentNotesListFab.setOnClickListener {
             findNavController().navigate(NotesListFragmentDirections.actionNotesListFragmentToNotesFormFragment())
+
+//            NotificationUtil(
+//                context = requireActivity(),
+//                channelId = "Welcome",
+//                channelName = "Canal de bienvenida",
+//                channelDescription = "Este es un canal de prueba para nuevas notificaciones",
+//                notificationId = 123456789,
+//                isClickable = true,
+//                setTitle = "Holaa!!",
+//                setContent = "Ejemplo",
+//                setLongContent = "Sample of content",
+//                isColorAccent = true,
+//                idColorized = true
+//            )
+
         }
     }
 
