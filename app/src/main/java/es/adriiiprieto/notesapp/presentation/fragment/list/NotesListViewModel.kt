@@ -19,7 +19,7 @@ class NotesListViewModel @Inject constructor(private val noteRepository: NoteRep
         requestInformation()
     }
 
-    fun requestInformation(){
+    fun requestInformation() {
         executeCoroutines({
             val notes = noteRepository.getAll()
 
@@ -44,5 +44,19 @@ class NotesListViewModel @Inject constructor(private val noteRepository: NoteRep
         }, {
 
         })
+    }
+
+    fun getDataCSV(): String {
+        var textToWriteInFile = ""
+
+        textToWriteInFile += "Índice,Identificador único,Título,Body\n"
+
+        checkDataState { state ->
+            state.notesList.forEachIndexed { index, noteDomainModel ->
+                textToWriteInFile += "$index,${noteDomainModel.id},${noteDomainModel.title.replace(",", "")},${noteDomainModel.body.replace(",", "")}\n"
+            }
+        }
+
+        return textToWriteInFile
     }
 }

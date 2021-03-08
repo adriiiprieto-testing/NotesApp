@@ -30,6 +30,20 @@
             tools:visibility="gone" />
 
         <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+            android:id="@+id/fragmentNotesListFabDownload"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:text="@string/fragmentNotesListFabDownloadText"
+            android:textColor="@color/white"
+            app:backgroundTint="@color/design_default_color_primary"
+            app:icon="@android:drawable/ic_menu_share"
+            app:iconTint="@color/white"
+            app:layout_constraintBottom_toTopOf="@+id/fragmentNotesListFab"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
             android:id="@+id/fragmentNotesListFab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
