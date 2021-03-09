@@ -70,6 +70,8 @@ class NotesListFragment : BaseFragment<NotesListState, NotesListViewModel, Fragm
     private fun setupButton() {
         binding.fragmentNotesListFab.setOnClickListener {
 
+            throw Exception()
+
             vm.onActionClickOnNewNoteButton()
 
             findNavController().navigate(NotesListFragmentDirections.actionNotesListFragmentToNotesFormFragment())
