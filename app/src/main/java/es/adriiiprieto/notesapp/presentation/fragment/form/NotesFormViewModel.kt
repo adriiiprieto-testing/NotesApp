@@ -8,6 +8,8 @@ import es.adriiiprieto.notesapp.base.BaseExtraData
 import es.adriiiprieto.notesapp.base.BaseViewModel
 import es.adriiiprieto.notesapp.domain.model.NoteDomainModel
 import es.adriiiprieto.notesapp.domain.repository.NoteRepository
+import es.adriiiprieto.notesapp.presentation.analytics.AnalyticsHandler
+import es.adriiiprieto.notesapp.presentation.analytics.SCREEN_NOTES_FORM
 import es.adriiiprieto.notesapp.presentation.fragment.form.NotesFormFragment.Companion.CODE_ALL_RIGHT
 import es.adriiiprieto.notesapp.presentation.fragment.form.NotesFormFragment.Companion.CODE_CONFIRM_UPDATE
 import es.adriiiprieto.notesapp.presentation.fragment.form.NotesFormFragment.Companion.CODE_EXIT
@@ -17,12 +19,12 @@ import es.adriiiprieto.notesapp.presentation.fragment.form.NotesFormFragment.Com
 import javax.inject.Inject
 
 @HiltViewModel
-class NotesFormViewModel @Inject constructor(private val repository: NoteRepository, @ApplicationContext private val context: Context) : BaseViewModel<NotesFormState>() {
+class NotesFormViewModel @Inject constructor(private val repository: NoteRepository, @ApplicationContext private val context: Context, private val analytics: AnalyticsHandler) : BaseViewModel<NotesFormState>() {
 
     override val defaultState: NotesFormState = NotesFormState()
 
     override fun onStartFirstTime() {
-
+        analytics.trackScreen(SCREEN_NOTES_FORM)
     }
 
     fun setNote(inputNote: NoteDomainModel?) {

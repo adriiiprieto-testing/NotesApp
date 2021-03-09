@@ -5,14 +5,16 @@ import es.adriiiprieto.notesapp.base.BaseViewModel
 import es.adriiiprieto.notesapp.domain.model.NoteDomainModel
 import es.adriiiprieto.notesapp.domain.repository.NoteRepository
 import es.adriiiprieto.notesapp.domain.repository.PreferencesRepository
+import es.adriiiprieto.notesapp.presentation.analytics.*
 import javax.inject.Inject
 
 @HiltViewModel
-class NotesListViewModel @Inject constructor(private val noteRepository: NoteRepository, private val preferencesRepository: PreferencesRepository) : BaseViewModel<NotesListState>() {
+class NotesListViewModel @Inject constructor(private val noteRepository: NoteRepository, private val preferencesRepository: PreferencesRepository, private val analytics: AnalyticsHandler) : BaseViewModel<NotesListState>() {
 
     override val defaultState: NotesListState = NotesListState()
 
     override fun onStartFirstTime() {
+        analytics.trackScreen(SCREEN_NOTES_LIST)
     }
 
     override fun onResume() {
@@ -32,6 +34,8 @@ class NotesListViewModel @Inject constructor(private val noteRepository: NoteRep
     }
 
     fun onActionDeleteNote(item: NoteDomainModel) {
+        analytics.trackComponent(COMPONENT_BUTTON, COMPONENT_BUTTON_DELETE_NOTE)
+
         preferencesRepository.setKeyDataBoolean(true)
 
         executeCoroutines({
@@ -58,5 +62,13 @@ class NotesListViewModel @Inject constructor(private val noteRepository: NoteRep
         }
 
         return textToWriteInFile
+    }
+
+    fun onActionClickOnNewNoteButton() {
+        analytics.trackComponent(COMPONENT_BUTTON, COMPONENT_BUTTON_NEW_NOTE)
+    }
+
+    fun onActionClickOnEditNoteButton() {
+        analytics.trackComponent(COMPONENT_ITEM_LIST, COMPONENT_ITEM_LIST_EDIT_NOTE)
     }
 }

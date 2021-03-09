@@ -13,6 +13,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.work.WorkInfo
 import androidx.work.WorkManager
 import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.analytics.FirebaseAnalytics
+import com.google.firebase.analytics.ktx.analytics
+import com.google.firebase.analytics.ktx.logEvent
+import com.google.firebase.ktx.Firebase
 import dagger.hilt.android.AndroidEntryPoint
 import es.adriiiprieto.notesapp.base.BaseExtraData
 import es.adriiiprieto.notesapp.base.BaseFragment
@@ -65,6 +69,9 @@ class NotesListFragment : BaseFragment<NotesListState, NotesListViewModel, Fragm
      */
     private fun setupButton() {
         binding.fragmentNotesListFab.setOnClickListener {
+
+            vm.onActionClickOnNewNoteButton()
+
             findNavController().navigate(NotesListFragmentDirections.actionNotesListFragmentToNotesFormFragment())
 
 //            NotificationUtil(
@@ -91,6 +98,7 @@ class NotesListFragment : BaseFragment<NotesListState, NotesListViewModel, Fragm
     private fun setupRecyclerView() {
         mAdapter = NotesListAdapter(listOf(), object : NotesListAdapter.MyClicksListener {
             override fun onEditButtonClicked(item: NoteDomainModel) {
+                vm.onActionClickOnEditNoteButton()
                 findNavController().navigate(NotesListFragmentDirections.actionNotesListFragmentToNotesFormFragment(item))
             }
 
