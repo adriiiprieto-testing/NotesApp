@@ -15,6 +15,7 @@ class NotesListViewModel @Inject constructor(private val noteRepository: NoteRep
 
     override fun onStartFirstTime() {
         analytics.trackScreen(SCREEN_NOTES_LIST)
+        analytics.setUserProperty("sample_key_5", "sample_value_5")
     }
 
     override fun onResume() {
