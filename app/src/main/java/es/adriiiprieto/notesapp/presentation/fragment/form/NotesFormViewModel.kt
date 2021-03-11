@@ -1,7 +1,6 @@
 package es.adriiiprieto.notesapp.presentation.fragment.form
 
 import android.content.Context
-import androidx.work.*
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
 import es.adriiiprieto.notesapp.base.BaseExtraData
@@ -83,7 +82,7 @@ class NotesFormViewModel @Inject constructor(private val repository: NoteReposit
         checkDataState { state ->
 
             if (state.note != null) {
-
+/*
                 // Set constraints to the work
                 val constraints = Constraints.Builder()
                     .setRequiredNetworkType(NetworkType.UNMETERED)
@@ -104,8 +103,14 @@ class NotesFormViewModel @Inject constructor(private val repository: NoteReposit
 
                 // Launch the work
                 WorkManager.getInstance(context).enqueue(saveWorkRequest)
+*/
 
-                updateToLoadingState(BaseExtraData(CODE_EXIT))
+                executeCoroutines({
+//                    repository.update(NoteDomainModel(state.note.id, state.title, state.body))
+                    repository.update(state.note.copy(title = state.title, body = state.body))
+
+                    updateToLoadingState(BaseExtraData(CODE_EXIT))
+                }, {})
             }
         }
     }
