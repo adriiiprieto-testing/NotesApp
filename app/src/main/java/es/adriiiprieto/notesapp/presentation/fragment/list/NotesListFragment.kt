@@ -70,12 +70,14 @@ class NotesListFragment : BaseFragment<NotesListState, NotesListViewModel, Fragm
     private fun setupButton() {
         binding.fragmentNotesListFab.setOnClickListener {
 
-            throw Exception()
+            // Crashlytics
+//            throw Exception()
 
             vm.onActionClickOnNewNoteButton()
 
             findNavController().navigate(NotesListFragmentDirections.actionNotesListFragmentToNotesFormFragment())
 
+            // Notifications
 //            NotificationUtil(
 //                context = requireActivity(),
 //                channelId = "Welcome",

@@ -17,5 +17,5 @@
     <string name="notesListFragmentToolbarTitle">My notes</string>
     <string name="notesFormFragmentToolbarTitleCreate">Create new note</string>
     <string name="notesFormFragmentToolbarTitleUpdate">Update note</string>
-    <string name="fragmentNotesListFabDownloadText">Exportar</string>
+    <string name="fragmentNotesListFabDownloadText">Export</string>
 </resources>

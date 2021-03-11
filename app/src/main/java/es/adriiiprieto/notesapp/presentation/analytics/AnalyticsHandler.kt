@@ -22,5 +22,9 @@ class AnalyticsHandler @Inject constructor(private val firebase: FirebaseAnalyti
         }
     }
 
+    fun setUserProperty(keyProperty: String, valueProperty: String) {
+        firebase.setUserProperty(keyProperty, valueProperty)
+    }
+
 
 }
