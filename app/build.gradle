@@ -8,12 +8,13 @@ plugins {
     id 'com.google.firebase.crashlytics'
 }
 
+def final appId = "es.adriiiprieto.notesapp"
+
 android {
     compileSdkVersion 30
     buildToolsVersion "30.0.3"
 
     defaultConfig {
-        applicationId "es.adriiiprieto.notesapp"
         minSdkVersion 23
         targetSdkVersion 30
         versionCode 1
@@ -28,6 +29,24 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    flavorDimensions "env"
+
+    productFlavors {
+        local {
+            applicationId = appId
+            manifestPlaceholders = [
+                    appName: "@string/app_name"
+            ]
+        }
+        remote {
+            applicationId = appId + ".remote"
+            manifestPlaceholders = [
+                    appName: "@string/app_name_remote"
+            ]
+        }
+    }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
