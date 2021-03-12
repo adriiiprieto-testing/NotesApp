@@ -1,9 +1,7 @@
 package es.adriiiprieto.notesapp.data.notes.repository
 
-import es.adriiiprieto.notesapp.data.notes.model.toDataModel
 import es.adriiiprieto.notesapp.data.notes.model.toDomainModel
 import es.adriiiprieto.notesapp.data.notes.model.toFirebaseDataModel
-import es.adriiiprieto.notesapp.data.notes.repository.local.NoteLocal
 import es.adriiiprieto.notesapp.data.notes.repository.network.NoteNetwork
 import es.adriiiprieto.notesapp.domain.model.NoteDomainModel
 import es.adriiiprieto.notesapp.domain.repository.NoteRepository

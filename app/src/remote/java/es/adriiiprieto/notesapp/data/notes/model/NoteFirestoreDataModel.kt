@@ -1,6 +1,5 @@
 package es.adriiiprieto.notesapp.data.notes.model
 
-import com.google.firebase.firestore.Exclude
 import es.adriiiprieto.notesapp.domain.model.NoteDomainModel
 
 data class NoteFirestoreDataModel(
