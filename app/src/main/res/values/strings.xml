@@ -19,4 +19,6 @@
     <string name="notesFormFragmentToolbarTitleCreate">Create new note</string>
     <string name="notesFormFragmentToolbarTitleUpdate">Update note</string>
     <string name="fragmentNotesListFabDownloadText">Export</string>
+    <string name="myFirebaseMessagingServiceNotificationName">Notificaciones de firebase</string>
+    <string name="myFirebaseMessagingServiceNotificationDescription">Canal de muestra de notificaciones de Firebase</string>
 </resources>

@@ -1,4 +1,4 @@
-package es.adriiiprieto.notesapp.presentation.util
+package es.adriiiprieto.notesapp.presentation.notifications
 
 import android.app.Notification
 import android.app.NotificationChannel
