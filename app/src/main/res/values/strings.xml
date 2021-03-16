@@ -21,4 +21,6 @@
     <string name="fragmentNotesListFabDownloadText">Export</string>
     <string name="myFirebaseMessagingServiceNotificationName">Notificaciones de firebase</string>
     <string name="myFirebaseMessagingServiceNotificationDescription">Canal de muestra de notificaciones de Firebase</string>
+    <string name="accountMenuSignOutText">Salir</string>
+    <string name="accountMenuDeleteAccountText">Eliminar cuenta</string>
 </resources>

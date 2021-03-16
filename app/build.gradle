@@ -104,4 +104,8 @@ dependencies {
 
     // Cloud messages
     implementation 'com.google.firebase:firebase-messaging-ktx'
+
+    // Authentication
+    implementation 'com.firebaseui:firebase-ui-auth:7.1.1'
+    implementation 'com.google.firebase:firebase-auth-ktx'
 }
