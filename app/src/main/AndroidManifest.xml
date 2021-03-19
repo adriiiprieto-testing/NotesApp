@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="es.adriiiprieto.notesapp">
 
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
     <application
         android:name=".NotesApplication"
         android:allowBackup="true"
@@ -32,6 +34,14 @@
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyAJGE4PQhf7m0APWgi4cNu99gbAMwc-D08" />
 
     </application>
 
