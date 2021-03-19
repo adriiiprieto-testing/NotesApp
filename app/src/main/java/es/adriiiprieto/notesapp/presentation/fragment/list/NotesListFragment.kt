@@ -98,6 +98,10 @@ class NotesListFragment : BaseFragment<NotesListState, NotesListViewModel, Fragm
         binding.fragmentNotesListFabDownload.setOnClickListener {
             createFile()
         }
+
+        binding.fragmentNotesListButtonMaps.setOnClickListener {
+            findNavController().navigate(NotesListFragmentDirections.actionNotesListFragmentToMapsFragment())
+        }
     }
 
     private fun setupRecyclerView() {
