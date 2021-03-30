@@ -1,3 +1,27 @@
 <resources>
-    <string name="app_name">NotesApp</string>
+    <string name="app_name" translatable="false">RoomNotesApp</string>
+    <string name="app_name_remote" translatable="false">FirebaseNotesApp</string>
+    <string name="itemNoteButtonEditText">Edit</string>
+    <string name="itemNoteButtonDeleteText">Delete</string>
+    <string name="fragmentNotesListFabText">New note</string>
+    <string name="fragmentNotesFormTextInputLayoutTitleText">Title</string>
+    <string name="fragmentNotesFormTextInputLayoutTitleHelperText">The max length for this field is 100 chars</string>
+    <string name="fragmentNotesFormTextInputLayoutBodyText">Content</string>
+    <string name="notesFormFragmentErrorEmptyField">The field cannot be empty</string>
+    <string name="notesFormFragmentButtonTextUpdate">Update</string>
+    <string name="notesFormFragmentButtonTextCreate">Create</string>
+    <string name="notesFormFragmentDialogTitle">Information</string>
+    <string name="notesFormFragmentDialogMessage">Note saved</string>
+    <string name="notesFormFragmentDialogButtonAccept">OK</string>
+    <string name="notesFormFragmentDialogMessageConfirmation">You will los the old information, are you sure?</string>
+    <string name="notesFormFragmentDialogButtonCancelConfirmation">Cancel</string>
+    <string name="notesListFragmentToolbarTitle">My notes</string>
+    <string name="notesFormFragmentToolbarTitleCreate">Create new note</string>
+    <string name="notesFormFragmentToolbarTitleUpdate">Update note</string>
+    <string name="fragmentNotesListFabDownloadText">Export</string>
+    <string name="myFirebaseMessagingServiceNotificationName">Notificaciones de firebase</string>
+    <string name="myFirebaseMessagingServiceNotificationDescription">Canal de muestra de notificaciones de Firebase</string>
+    <string name="accountMenuSignOutText">Salir</string>
+    <string name="accountMenuDeleteAccountText">Eliminar cuenta</string>
+    <string name="fragmentNotesListButtonMapsText">Maps</string>
 </resources>

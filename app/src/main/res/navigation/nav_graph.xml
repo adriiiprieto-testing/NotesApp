@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/notesListFragment">
+
+    <fragment
+        android:id="@+id/notesListFragment"
+        android:name="es.adriiiprieto.notesapp.presentation.fragment.list.NotesListFragment"
+        android:label="@string/notesListFragmentToolbarTitle"
+        tools:layout="@layout/fragment_notes_list">
+        <action
+            android:id="@+id/action_notesListFragment_to_notesFormFragment"
+            app:destination="@id/notesFormFragment" />
+        <action
+            android:id="@+id/action_notesListFragment_to_mapsFragment"
+            app:destination="@id/mapsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/notesFormFragment"
+        android:name="es.adriiiprieto.notesapp.presentation.fragment.form.NotesFormFragment"
+        tools:layout="@layout/fragment_notes_form" >
+        <argument
+            android:name="inputStateNote"
+            app:argType="es.adriiiprieto.notesapp.domain.model.NoteDomainModel"
+            app:nullable="true"
+            android:defaultValue="@null" />
+    </fragment>
+    <fragment
+        android:id="@+id/mapsFragment"
+        android:name="es.adriiiprieto.notesapp.presentation.fragment.maps.MapsFragment"
+        android:label="MapsFragment"
+        tools:layout="@layout/fragment_maps"/>
+</navigation>

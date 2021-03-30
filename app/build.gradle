@@ -1,14 +1,20 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+    id 'androidx.navigation.safeargs.kotlin'
+    id 'com.google.gms.google-services'
+    id 'com.google.firebase.crashlytics'
 }
+
+def final appId = "es.adriiiprieto.notesapp"
 
 android {
     compileSdkVersion 30
     buildToolsVersion "30.0.3"
 
     defaultConfig {
-        applicationId "es.adriiiprieto.notesapp"
         minSdkVersion 23
         targetSdkVersion 30
         versionCode 1
@@ -23,6 +29,24 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    flavorDimensions "env"
+
+    productFlavors {
+        local {
+            applicationId = appId
+            manifestPlaceholders = [
+                    appName: "@string/app_name"
+            ]
+        }
+        remote {
+            applicationId = appId + ".remote"
+            manifestPlaceholders = [
+                    appName: "@string/app_name_remote"
+            ]
+        }
+    }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -30,16 +54,62 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+
+    buildFeatures {
+        dataBinding true
+    }
 }
 
 dependencies {
-
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation 'androidx.core:core-ktx:1.3.2'
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'com.google.android.material:material:1.3.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
-    testImplementation 'junit:junit:4.+'
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.3.4'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.3.4'
+    testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+
+    // Dagger Hilt
+    implementation "com.google.dagger:hilt-android:2.33-beta"
+    kapt "com.google.dagger:hilt-compiler:2.33-beta"
+
+    // Room library
+    implementation "androidx.room:room-runtime:2.2.6"
+    kapt "androidx.room:room-compiler:2.2.6"
+    implementation "androidx.room:room-ktx:2.2.6"
+    testImplementation "androidx.room:room-testing:2.2.6"
+
+    // Work manager
+    implementation "androidx.work:work-runtime-ktx:2.5.0"
+    implementation "androidx.work:work-gcm:2.5.0"
+    androidTestImplementation "androidx.work:work-testing:2.5.0"
+    implementation "androidx.work:work-multiprocess:2.5.0"
+
+    // Work manager and Hilt
+    implementation 'androidx.hilt:hilt-work:1.0.0-beta01'
+    kapt 'androidx.hilt:hilt-compiler:1.0.0-beta01'
+
+    // Firebase
+    implementation platform('com.google.firebase:firebase-bom:26.6.0')
+    implementation 'com.google.firebase:firebase-analytics-ktx'
+
+    // Crashlytics
+    implementation 'com.google.firebase:firebase-crashlytics-ktx'
+
+    // Firestore
+    implementation 'com.google.firebase:firebase-firestore-ktx'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.1.1'
+
+    // Cloud messages
+    implementation 'com.google.firebase:firebase-messaging-ktx'
+
+    // Authentication
+    implementation 'com.firebaseui:firebase-ui-auth:7.1.1'
+    implementation 'com.google.firebase:firebase-auth-ktx'
+
+    // Maps
+    implementation 'com.google.android.gms:play-services-maps:17.0.0'
+    implementation "com.google.android.gms:play-services-location:18.0.0"
 }

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="itemNoteButtonEditText">Editar</string>
+    <string name="itemNoteButtonDeleteText">Eliminar</string>
+    <string name="fragmentNotesListFabText">Nueva nota</string>
+    <string name="fragmentNotesFormTextInputLayoutTitleText">Título</string>
+    <string name="fragmentNotesFormTextInputLayoutTitleHelperText">La longitud máxima para este campo es 100 caracteres</string>
+    <string name="fragmentNotesFormTextInputLayoutBodyText">Contenido</string>
+    <string name="notesFormFragmentErrorEmptyField">El campo no puede estar vacío</string>
+    <string name="notesFormFragmentButtonTextUpdate">Actualizar</string>
+    <string name="notesFormFragmentButtonTextCreate">Crear</string>
+    <string name="notesFormFragmentDialogTitle">Información</string>
+    <string name="notesFormFragmentDialogMessage">Nota guardada</string>
+    <string name="notesFormFragmentDialogButtonAccept">Vale</string>
+    <string name="notesFormFragmentDialogMessageConfirmation">Perderás la información previa, ¿Estás seguro?</string>
+    <string name="notesFormFragmentDialogButtonCancelConfirmation">Cancelar</string>
+    <string name="notesListFragmentToolbarTitle">Mis notas</string>
+    <string name="notesFormFragmentToolbarTitleCreate">Crear nueva nota</string>
+    <string name="notesFormFragmentToolbarTitleUpdate">Actualizar nota</string>
+    <string name="fragmentNotesListFabDownloadText">Export</string>
+</resources>
